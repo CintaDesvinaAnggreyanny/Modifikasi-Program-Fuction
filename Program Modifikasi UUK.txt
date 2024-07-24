@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+int cariNilaiTertinggi(int nilai[], int n);
+int cariNilaiTerendah(int nilai[], int n);
+float hitungRataRata(int nilai[], int n);
+
+int main() {
+    int nilai[11] = {88, 82, 90, 90, 83, 100, 94, 95, 80, 81, 89};
+    
+    cout << "Data Nilai Matematika Kelas X-PPLG: 📚 " << endl;
+    for (int i = 0; i < 11; ++i) {
+        cout << "Nilai absen murid ke " << i+1 << ": " << nilai[i] << endl;
+    }
+    
+    int nilaiTertinggi = cariNilaiTertinggi(nilai, 11);
+    int nilaiTerendah = cariNilaiTerendah(nilai, 11);
+    float rataRata = hitungRataRata(nilai, 11);
+    
+    cout << "Nilai Tertinggi Matematika siswa-siswi X-PPLG adalah: ✔" << nilaiTertinggi << endl;
+    cout << "Nilai Terendah Matematika siswa-siswi X-PPLG adalah: ✔" << nilaiTerendah << endl;
+    cout << "Nilai Rata-rata Matematika siswa-siswi X-PPLG adalah: ✔" << rataRata << endl;
+    
+    return 0;
+}
+
+int cariNilaiTertinggi(int nilai[], int n) {
+    int max = nilai[0];
+    for (int i = 1; i < n; ++i) {
+        if (nilai[i] > max) {
+            max = nilai[i];
+        }
+    }
+    return max;
+}
+
+int cariNilaiTerendah(int nilai[], int n) {
+    int min = nilai[0];
+    for (int i = 1; i < n; ++i) {
+        if (nilai[i] < min) {
+            min = nilai[i];
+        }
+    }
+    return min;
+}
+
+float hitungRataRata(int nilai[], int n) {
+    int total = 0;
+    for (int i = 0; i < n; ++i) {
+        total += nilai[i];
+    }
+    return static_cast<float>(total) / n;
+}
